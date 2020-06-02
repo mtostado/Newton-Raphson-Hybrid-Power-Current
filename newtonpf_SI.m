@@ -68,14 +68,10 @@ while (~converged && i < max_it)
     [dImis_dVa, ~] = dImis_dV(Sb, Ybus, V);
     [dSbus_dVr, dSbus_dVi] = dSbus_dV(Ybus, V, 1);
    
-    dImis_dQ = sparse(1:n, 1:n, 1j./conj(V), n, n);
     [dImis_dVr, dImis_dVi] = dImis_dV(Sb, Ybus, V, 1);
     dImis_dVi(:, pv) = dImis_dVi(:, pv) - ...
         dImis_dVr(:, pv) * sparse(1:npv, 1:npv, imag(V(pv))./real(V(pv)), npv, npv);
     dImis_dVr(:, pv) = dImis_dQ(:, pv);
-
-    %% handling of derivatives for voltage dependent loads
-    %% (not yet implemented) goes here
     
     j11 = real(dImis_dVr(pq, pq));
     j12 = real(dImis_dVi(pq, pq));
