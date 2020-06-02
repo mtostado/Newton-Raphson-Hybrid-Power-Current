@@ -22,7 +22,7 @@ npv = length(pv);
 npq = length(pq);
 j1 = 1;         j2 = npq;           %% j1:j2 - Vr of pq buses
 j3 = j2 + 1;    j4 = j2 + npq;  %% j3:j4 - Vi of pq buses
-j5 = j4 + 1;    j6 = j4 + npv;  %% j5:j6 - Va for pv buses
+j5 = j4 + 1;    j6 = j4 + npv;  %% j5:j6 - Va of pv buses
 
 %% evaluate F(x0)
 Sb = Sbus(Vm);
