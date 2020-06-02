@@ -27,8 +27,8 @@ j5 = j4 + 1;    j6 = j4 + npv;  %% j5:j6 - Va of pv buses
 %% evaluate F(x0)
 Sb = Sbus(Vm);
 Sb(pv) = real(Sb(pv)) + 1j * imag(V(pv) .* conj(Ybus(pv, :) * V));
-mis1 = Ybus * V - conj(Sb ./ V); % Current mismatches for PQ buses
-mis2 = V .* conj(Ybus * V) - Sbus(Vm); % Power mismacthes for PV buses
+mis1 = Ybus * V - conj(Sb ./ V); % Current mismatches of PQ buses
+mis2 = V .* conj(Ybus * V) - Sbus(Vm); % Power mismacthes of PV buses
 Fpv = [   real(mis2(pv))  ];
 Fpq = [   real(mis1(pq));
         imag(mis1(pq))   ];
@@ -107,8 +107,8 @@ while (~converged && i < max_it)
     %% evalute F(x)
     Sb = Sbus(Vm);
     Sb(pv) = real(Sb(pv)) + 1j * imag(V(pv) .* conj(Ybus(pv, :) * V));
-    mis1 = Ybus * V - conj(Sb ./ V); % Current mismatches for PQ buses
-    mis2 = V .* conj(Ybus * V) - Sbus(Vm); % Power mismacthes for PV buses
+    mis1 = Ybus * V - conj(Sb ./ V); % Current mismatches of PQ buses
+    mis2 = V .* conj(Ybus * V) - Sbus(Vm); % Power mismacthes of PV buses
     Fpv = [   real(mis2(pv))  ];
     Fpq = [   real(mis1(pq));
             imag(mis1(pq))   ];
